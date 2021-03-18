@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[margin=1in]{geometry}
+\title{Assignment1}
+\author{DAMARAGIDDA BHARADWAJA RAO\\CS20BTECH11012}
+\date{March 2021}
+
+\begin{document}
+
+\maketitle
+\begin{multicols*}{2}
+\noindent
+\textbf{Q 1.17} Determine P(E/F), if two coins are tossed
+once, where\\
+(i) E : tail appears on one coin, F : one coin
+shows head\\
+\vspace{0.5cm}
+(ii) E : no tail appears, F : no head appears\\
+\textbf{solution}\\
+\textbf{(i)} Let X denotes the number of heads shown up during the simultaneous toss of two coins,so \\
+where $ i = 1,j = 2 $  n : number of coins = 2 and p: the probability of getting a head is $\dfrac{1}{2}$
+\begin{multline*}
+P(F)=P(X\geq 1)\\
+=P(X=i)+P(X=j)
+\end{multline*}
+By binomial distribution
+\begin{align*}
+P(X=i)&=\binom{n}{i} p ^2\\
+P(X=j)&=\binom{n}{j} p ^2\\
+\text{hence} P(F) &= \binom{n}{i} p ^2 + \binom{n}{j} p ^2\\
+P(F) &= \frac{1}{2} + \frac{1}{4} = \frac{3}{4}\\
+P(EF) &= P(X=i)=\binom{n}{i} p ^2\\
+P(EF) &= \frac{1}{2}\\
+P(E/F) &= \frac{2}{3}\\
+\textbf{(ii)}\hspace{0.3cm}P(F) &=P(X=k)= \binom{n}{k} p^2, k = 2\\
+& = \frac{1}{4}\\
+&P(EF) = 0\\
+&P(E/F) = 0
+\end{align*}
+\end{multicols*}
+
+
+\end{document}
