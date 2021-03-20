@@ -6,6 +6,7 @@
 \usepackage{multicol}
 \usepackage[margin=1in]{geometry}
 \usepackage{enumitem}
+\usepackage{graphicx}
 \title{Assignment1}
 \author{DAMARAGIDDA BHARADWAJA RAO\\CS20BTECH11012}
 \date{March 2021}
@@ -24,8 +25,6 @@ shows head\\
 \item Let X denotes the number of heads shown up during the simultaneous toss of two coins,so \\
 where $ i = 1,j = 2 $  n : number of coins = 2 and p: the probability of getting a head is $\dfrac{1}{2}$
 By binomial distribution
-\begin{subequations}
-\renewcommand{\theequation}{\theparentequation.\arabic{equation}}
 \begin{align}
 P(F)&=P(X\geq 1)\nonumber\\
 &=P(X=i)+P(X=j)\\
@@ -37,10 +36,7 @@ P(EF) &= P(X=i)=\binom{n}{i} p ^2\\
 P(EF) &= \frac{1}{2}\\
 P(E/F) &= \frac{2}{3}
 \end{align}
-\end{subequations}
 \item 
-\begin{subequations}
-\renewcommand{\theequation}{\theparentequation.\arabic{equation}}
 \begin{align}
 P(F) &=P(X=k)\nonumber\\
 &= \binom{n}{k} p^2, k = 2\nonumber\\
@@ -48,17 +44,18 @@ P(F) &=P(X=k)\nonumber\\
 &P(EF) = 0\\
 &P(E/F) = 0
 \end{align}
-\end{subequations}
 \end{enumerate}
 \begin{table}[H]
-\renewcommand{\arraystretch}{2}
+%\renewcommand{\arraystretch}{2}
+\resizebox{9cm}{!} {
 \begin{tabular}{|c|c|c|c|}
 \hline
      X&0&1&2  \\
      \hline
      P(X)&$\binom{2}{0}(0.5)^2=\dfrac{1}{4}$&$\binom{2}{1}(0.5)^2 = \dfrac{1}{2}$&$\binom{2}{2}(0.5)^2 = \dfrac{1}{4}$\\
      \hline
-\end{tabular}\\
+\end{tabular}
+}
 \caption{Probability of number of heads shown on the coins }
 \label{table:1}
 \end{table}
