@@ -1,53 +1,33 @@
-\documentclass[11pt,a4paper,twocolumn]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{float}
-\usepackage{multicol}
-\usepackage[margin=1in]{geometry}
-\usepackage{enumitem}
+\title{Assignment 1}
+\author{Damaragidda Bharadwaja Rao - CS20BTECH11012}
+\date{\today}
+
+\documentclass[journal,12pt,twocoloums]{IEEEtran}
+\usepackage{amsthm}
 \usepackage{graphicx}
-\title{Assignment1}
-\author{DAMARAGIDDA BHARADWAJA RAO\\CS20BTECH11012}
-\date{March 2021}
-
+\usepackage{float}
+\usepackage{caption}
+\usepackage{enumerate}	
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{enumitem}
+\usepackage{mathtools}
 \begin{document}
-
 \maketitle
-\noindent
-\textbf{Q 1.17} Determine P(E/F), if two coins are tossed
-once, where\\
+\noindent 
+\textbf{Q. 1.17}\\
+Determine P(E/F), if two coins are
+tossed once, where\\
 (i) E : tail appears on one coin, F : one coin
 shows head\\
-(ii) E : no tail appears, F : no head appears
-\textbf{solution}
-\begin{enumerate}[label=\roman*]
-\item Let X denotes the number of heads shown up during the simultaneous toss of two coins,so \\
-where $ i = 1,j = 2 $  n : number of coins = 2 and p: the probability of getting a head is $\dfrac{1}{2}$
-By binomial distribution
-\begin{align}
-P(F)&=P(X\geq 1)\nonumber\\
-&=P(X=i)+P(X=j)\\
-P(X=i)&=\binom{n}{i} p ^2\\
-P(X=j)&=\binom{n}{j} p ^2\\
-\text{hence} P(F) &= \binom{n}{i} p ^2 + \binom{n}{j} p ^2\\
-P(F) &= \frac{1}{2} + \frac{1}{4} = \frac{3}{4}\nonumber\\
-P(EF) &= P(X=i)=\binom{n}{i} p ^2\\
-P(EF) &= \frac{1}{2}\\
-P(E/F) &= \frac{2}{3}
-\end{align}
-\item 
-\begin{align}
-P(F) &=P(X=k)\nonumber\\
-&= \binom{n}{k} p^2, k = 2\nonumber\\
-& = \frac{1}{4}\\
-&P(EF) = 0\\
-&P(E/F) = 0
-\end{align}
-\end{enumerate}
+(ii) E : no tail appears, F : no head appears\vspace{0.5cm}\\
+\textbf{Solution}
+Let X denote the number of heads shown on the coins, where n = 2 and P = 0.5
+$$p(x) = \Pr(X=x) = \binom{n}{x}\times P^2$$ 
 \begin{table}[H]
-%\renewcommand{\arraystretch}{2}
-\resizebox{10cm}{!} {
+\resizebox{9cm}{0.8cm} {
 \begin{tabular}{|c|c|c|c|}
 \hline
      X&0&1&2  \\
@@ -59,6 +39,26 @@ P(F) &=P(X=k)\nonumber\\
 \caption{Probability of number of heads shown on the coins }
 \label{table:1}
 \end{table}
+\begin{enumerate}[label=\roman*]
+\item 
+\begin{align}
+\Pr(F) &= \Pr(X\geq 1)\\
+\Pr(F) &= \Pr(X = 1) + \Pr(X = 2)\\
+       &= \frac{1}{2} + \frac{1}{4} = \frac{3}{4}\nonumber\\
+\Pr(EF) &= \Pr(X = 1) = \frac{1}{2}\\
+\Pr(E/F) &=\frac{\Pr(EF)}{\Pr(F)} = \frac{2}{3}
+\end{align}
+\item
+\begin{align}
+\Pr(F) &= \Pr(X = 0) = \frac{1}{4}\\
+\Pr(EF) &= 0\\
+\Pr(E/F) &= \frac{\Pr(EF)}{\Pr(F)} = 0
+\end{align} 
+\end{enumerate}
 
+
+
+
+\bibliographystyle{IEEEtran}
 
 \end{document}
