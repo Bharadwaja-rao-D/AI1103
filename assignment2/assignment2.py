@@ -47,6 +47,7 @@ stimulated_prob_1_3 = no_3 / no_expts
 prob_2 = ( no_0 + no_1 ) / no_expts
 prob_avg = prob_sent_0 * prob_1 + prob_sent_1 * prob_2
 print("Stimulated average probability of error is :  ",prob_avg)
+print("calculated average probability of error is :  ",0.028)
 x = [0,1,2,3]
 y = [stimulated_prob_0_0, stimulated_prob_0_1, stimulated_prob_0_2, stimulated_prob_0_3]
 z = [0.729, 0.243, 0.027, 0.001]
