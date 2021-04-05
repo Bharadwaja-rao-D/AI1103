@@ -162,20 +162,23 @@ Let X and Y be a random variable which takes values from set A and B respectivel
 \end{equation}
 \begin{align}
 &p_z(n) = \Pr(X+Y = n) = \Pr(Y=n-X)\\
-&p_z(n)=\sum_{k\in A}\Pr(Y=n-k | X=k)\times \Pr(X=k)\\
-&\Pr(Y=n-k|X=k) = \Pr(Y=n-k)=p_Y(n-k)\\
 &p_z(n) = \sum_k p_x(k)p_y(n-k) = p_x(n) * p_y(n)\\
 &p_z(n) = \frac{1}{4} \sum_{k=2}^5 p_y(n-k)=\frac{1}{4}\sum_{k=n-5}^{n-2} p_y(k)
 \end{align}
 \begin{equation}
   p_z(n)=\begin{cases}
   &0 , n < 13\\
-  &\dfrac{1}{20}\times (n-12) ,13 \leq n < 16\\
-  &\dfrac{1}{20} \times 4 , 16 \leq n \leq 17\\
-  &0 , n > 17
+  &\dfrac{1}{20}\times (n-12) ,13 \leq n < 16\vspace{0.2cm}\\
+  &\dfrac{1}{20} \times 4 , 16 \leq n \leq 17\vspace{0.2cm}\\
+  &\dfrac{21-n}{20} , 18 \leq n \leq 20\vspace{0.2cm}\\
+  & 0 ,n > 20
   \end{cases}
 \end{equation}
 \begin{align}
 \therefore p_z(16) = \frac{1}{5}
 \end{align}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{assignment4_plot1.png}
+\end{figure}
 \end{document}
