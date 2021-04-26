@@ -1,4 +1,4 @@
-\documentclass[journal,12pt,twocolumn]{IEEEtran}
+ \documentclass[journal,12pt,twocolumn]{IEEEtran}
 \usepackage{amsthm}
 \allowbreak
 \usepackage{setspace}
@@ -158,17 +158,17 @@ The simple symmetric random walk is a Markov chain with state space S = $\{i | i
   \end{cases}
 \end{equation}
 and $P^n(i,j)$ denotes the probability of being in state j, starting from state i after n steps or transitions. 
-\begin{tikzpicture}
-\node[state]  (p) {i-1};
-\node[state,right=of p]  (q) {i};
-\node[state,right=of q]  (r) {i+1};
-\draw[every loop]
-(p) edge[bend right] node {$p $} (q)
-(q) edge[bend right] node {$q $} (p)
-(q) edge[bend right] node {$p$} (r)
-(r) edge[bend right] node {$q $} (q);
-   
-\end{tikzpicture}
+	\begin{tikzpicture}[->, >=stealth', auto, semithick, node distance=3cm]
+	\tikzstyle{every state}=[fill=white,draw=black,thick,text=black,scale=1]
+	\node[state]    (A)                     {$i-1$};
+	\node[state]    (B)[right of=A]   {$i$};
+	\node[state]    (C)[right of=B]   {$i+1$};
+	\path
+	(A) edge[bend left,above]			node{$p$}	(B)
+	(B) edge[bend left,below]	node{$q$}	(A)
+	edge[bend left,above]		node{$p$}	(C)
+	(C) edge[bend left,below]	node{$q$}	(B);
+	\end{tikzpicture}
 \subsection{Aperiodic}
 For a Markov chain to be aperiodic there should exist an integer k such that
 \begin{align}
