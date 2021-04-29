@@ -79,7 +79,7 @@ columns=fullflexible
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{example}{Example}[section]
 \newtheorem{definition}[problem]{Definition}
-
+\newcommand{\comb}[2]{{}^{#1}\mathrm{C}_{#2}}
 \newcommand{\BEQA}{\begin{eqnarray}}
 \newcommand{\EEQA}{\end{eqnarray}}
 \newcommand{\define}{\stackrel{\triangle}{=}}
@@ -151,13 +151,13 @@ Consider a simple symmetric random walk on integers, where from every state i yo
 \section*{Solution:}
 The simple symmetric random walk is a Markov chain with state space S = $\{i | i \in \mathbb{Z}\}$ and with transition matrix P where, 
 \begin{equation}
-  P(i,j)=\begin{cases}
+ p_{ij} =\begin{cases}
   0 , &|i-j|>1\vspace{0.2cm}\\
   p = \dfrac{1}{2} , &j = i+1\vspace{0.2cm}\\
   q =1-p = \dfrac{1}{2} , &j = i-1\\
   \end{cases}
 \end{equation}
-and $P^n(i,j)$ denotes the probability of being in state j, starting from state i after n steps or transitions. 
+and $p_{ij}$ denotes the probability of being in state j, starting from state i after n steps or transitions. 
 	\begin{tikzpicture}[->, >=stealth', auto, semithick, node distance=3cm]
 	\tikzstyle{every state}=[fill=white,draw=black,thick,text=black,scale=1]
 	\node[state]    (A)                     {$i-1$};
@@ -169,43 +169,43 @@ and $P^n(i,j)$ denotes the probability of being in state j, starting from state 
 	edge[bend left,above]		node{$p$}	(C)
 	(C) edge[bend left,below]	node{$q$}	(B);
 	\end{tikzpicture}
-\subsection{Aperiodic}
-For a Markov chain to be aperiodic there should exist an integer k such that
+\begin{enumerate}
+\item For a Markov chain to be aperiodic there should exist an integer k such that
 \begin{align}
-P^n(j,j) > 0 \hspace{0.5cm} \forall n \geq k \label{eq:aperoidic}
+p^n_{jj} > 0 \hspace{0.5cm} \forall n \geq k \label{eq:aperoidic}
 \end{align} 
 to return to same state after n steps, number of forward and backward steps should be same, that is number of steps should be even. 
 \begin{align}
-P^n(j,j) = 0 \hspace{0.5cm} \forall n \in Odd \label{eq:1}
+p^n_{jj} = 0 \hspace{0.5cm} \forall n \in Odd \label{eq:1}
 \end{align}
 $\therefore$ Equation \eqref{eq:aperoidic} is not satisfied and Option \textbf{(1)} is \textbf{incorrect}.
-\subsection{Irreducible}
-For a Markov chain to be \textbf{irreducible} all pairs i,j should communicate with each other.Let us assume that the chain starts from state i and let us assume that it requires m forward and (n-m) backward steps to reach j .Let $i < j$ wlog 
+\item For a Markov chain to be \textbf{irreducible} all pairs i,j should communicate with each other.Let us assume that the chain starts from state i and let us assume that it requires m forward and (n-m) backward steps to reach j .Let $i < j$ wlog 
 \begin{align}
 j - i &= m - (n - m) = 2m - n\\
 m &= \frac{(j - i) + n}{2}\\
-P^n(i,j) &= \binom{n}{m} p^m q^{n-m}\\
-P^n(i,j) &= \binom{n}{\dfrac{(j - i) + n}{2}} p^m q^{n-m}\\
-P^n(i,j) &> 0 \hspace{0.3cm}  n = (j-i)+2k \hspace{0.2cm} \forall k \in \mathbb{W}
+p_{ij} &= \comb{n}{m} p^m q^{n-m}
 \end{align}
+\begin{multline}
+p_{ij} = \comb{n}{\brak{\dfrac{(j - i) + n}{2}}} p^m q^{n-m} > 0\\
+ n = (j-i)+2k \hspace{0.2cm} \forall k \in \mathbb{W}
+\end{multline}
 Here i and j are general , hence all pairs i and j communicate with each other.\\
 $\therefore$Option \textbf{(2)} is \textbf{correct}
-\subsection{Recurrent}
-In a Markov Chain for state i to be \textbf{recurrent} it should satisfy ,
+\item In a Markov Chain for state i to be \textbf{recurrent} it should satisfy ,
 \begin{align}
-\lim_{t \to \infty} \sum_{n=1}^{t} P^n(i,i) = \infty \label{eq:Recurrent}
+\lim_{t \to \infty} \sum_{n=1}^{t} p^n_{ii} = \infty \label{eq:Recurrent}
 \end{align}
 \begin{align}
-\lim_{t \to \infty} \sum_{n=1}^{t} P^n(i,i) &= \lim_{t \to \infty}\left(\sum_{k=1}^{t} P^{2k}(i,i) + \sum_{k=1}^{t} P^{2k-1}(i,i)\right)\\
-&= \lim_{t \to \infty}\sum_{k=1}^{t} P^{2k}(i,i)\\
-P^{2k}(i,i) &= \binom{2k}{k}p^kq^k  = \frac{2k !}{k!k!}p^kq^k \label{eq:2}
+\lim_{t \to \infty} \sum_{n=1}^{t} p^n_{ii} &= \lim_{t \to \infty}\left(\sum_{k=1}^{t} p^{2k}_{ii} + \sum_{k=1}^{t} p^{(2k-1)}_{ii}\right)\\
+&= \lim_{t \to \infty}\sum_{k=1}^{t} p^{2k}_{ii}\\
+p^{2k}_{ii} &= \comb{2k}{k}p^kq^k  = \frac{2k !}{k!k!}p^kq^k \label{eq:2}
 \end{align}
-By using Stirling approximation to \eqref{eq:2} we get 
+By using Stirling approximation to the \eqref{eq:2} we get 
 \begin{align}
-&P^{2k}(i,i) = \dfrac{ \left((2k)^{2k+\frac{1}{2}}\right)\times \exp(-2k)\times(2\pi)^{\frac{1}{2}}}{\left(k^{k+\frac{1}{2}}\times \exp(-k)\right)^2\times
+&p^{2k}_{ii} = \dfrac{ \left((2k)^{2k+\frac{1}{2}}\right)\times \exp(-2k)\times(2\pi)^{\frac{1}{2}}}{\left(k^{k+\frac{1}{2}}\times \exp(-k)\right)^2\times
 2\pi}p^kq^k\\
 &= \dfrac{(4pq)^{2k}}{(k\pi)^{\frac{1}{2}}} = \dfrac{1}{(k\pi)^{\frac{1}{2}}}\\
-&\lim_{t \to \infty}\sum_{k=1}^{t} P^{2k}(i,i) = \lim_{t \to \infty}\sum_{k=1}^{t} \dfrac{1}{(k\pi)^{\frac{1}{2}}}
+&\lim_{t \to \infty}\sum_{k=1}^{t} p^{2k}_{ii} = \lim_{t \to \infty}\sum_{k=1}^{t} \dfrac{1}{(k\pi)^{\frac{1}{2}}}
 \end{align}
 Since $\dfrac{1}{k^\frac{1}{2}}$ is divergent, Equation \eqref{eq:Recurrent} is satisfied\\
 $\therefore$ The random walk is \textbf{recurrent}\\
@@ -232,6 +232,6 @@ where $\overline{T_{j,j}}$ represents the mean time to enter j starting from j. 
 From \eqref{eq:3} we get \eqref{eq:null recurrent} condition to be satisfied \\
 $\therefore$ Option \textbf{(3)} is \textbf{correct}.\\
 \textbf{Answer :} option2, option3
-
+\end{enumerate}
 
 \end{document}
