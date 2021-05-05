@@ -58,6 +58,7 @@
 \renewcommand\thesectiondis{\arabic{section}}
 \renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
 \renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+\renewcommand{\figurename}{Fig.}
 
 
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -157,7 +158,9 @@ The simple symmetric random walk is a Markov chain with state space S = $\{i | i
   q =1-p = \dfrac{1}{2} , &j = i-1\\
   \end{cases}
 \end{equation}
-and $p_{ij}$ denotes the probability of being in state j, starting from state i after n steps or transitions. 
+and $p_{ij}$ denotes the probability of being in state j, starting from state i after n steps or transitions.
+\renewcommand{\thefigure}{1}
+\begin{figure}[h]
 	\begin{tikzpicture}[->, >=stealth', auto, semithick, node distance=3cm]
 	\tikzstyle{every state}=[fill=white,draw=black,thick,text=black,scale=1]
 	\node[state]    (A)                     {$i-1$};
@@ -169,6 +172,23 @@ and $p_{ij}$ denotes the probability of being in state j, starting from state i 
 	edge[bend left,above]		node{$p$}	(C)
 	(C) edge[bend left,below]	node{$q$}	(B);
 	\end{tikzpicture}
+	\caption{Simple Symmetric random walk on integers}
+\end{figure}
+\renewcommand{\thefigure}{2}
+\begin{figure}[H]
+\begin{align}
+P = \bordermatrix{& \ldots & -2&-1&0&1&2&\ldots \cr
+                \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & 						\vdots\cr
+                -2& \ldots & 0  & p & 0 & 0 & 0 &\ldots\cr
+                -1& \ldots & q  & 0 & p & 0 & 0 &\ldots\cr
+                 0& \ldots & 0  & q & 0 & p & 0 &\ldots\cr
+				 1& \ldots & 0  & 0 & q & 0 & p &\ldots\cr
+				 2& \ldots & 0  & 0 & 0 & q & 0 &\ldots\cr	                
+                \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & 						\vdots\cr
+                }
+\end{align}
+\caption{Transition matrix of the Markov chain }
+\end{figure}
 \begin{enumerate}
 \item For a Markov chain to be aperiodic there should exist an integer k such that
 \begin{align}
