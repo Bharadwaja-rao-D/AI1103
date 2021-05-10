@@ -160,7 +160,7 @@ The simple symmetric random walk is a Markov chain with state space S = $\{i | i
 \end{equation}
 and $p_{ij}$ denotes the probability of being in state j, starting from state i after n steps or transitions.
 \renewcommand{\thefigure}{1}
-\begin{figure}[h]
+\begin{figure}[H]
 	\begin{tikzpicture}[->, >=stealth', auto, semithick, node distance=3cm]
 	\tikzstyle{every state}=[fill=white,draw=black,thick,text=black,scale=1]
 	\node[state]    (A)                     {$i-1$};
@@ -175,19 +175,15 @@ and $p_{ij}$ denotes the probability of being in state j, starting from state i 
 	\caption{Simple Symmetric random walk on integers}
 \end{figure}
 \renewcommand{\thefigure}{2}
+If the random walk is at state i then, 
 \begin{figure}[H]
 \begin{align}
-P = \bordermatrix{& \ldots & -2&-1&0&1&2&\ldots \cr
-                \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & 						\vdots\cr
-                -2& \ldots & 0  & p & 0 & 0 & 0 &\ldots\cr
-                -1& \ldots & q  & 0 & p & 0 & 0 &\ldots\cr
-                 0& \ldots & 0  & q & 0 & p & 0 &\ldots\cr
-				 1& \ldots & 0  & 0 & q & 0 & p &\ldots\cr
-				 2& \ldots & 0  & 0 & 0 & q & 0 &\ldots\cr	                
-                \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & 						\vdots\cr
+P = \bordermatrix{& i & i+1  \cr
+                i&  0  & p   \cr
+                i+1& q & 0	 \cr
                 }
 \end{align}
-\caption{Transition matrix of the Markov chain }
+\caption{Transition matrix of the random walk }
 \end{figure}
 \begin{enumerate}
 \item For a Markov chain to be aperiodic there should exist an integer k such that
